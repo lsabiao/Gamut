@@ -98,17 +98,20 @@ if __name__ == "__main__":
     parse.add_argument("--show", help="show the output image",action="store_true")
     args = parse.parse_args()
     print
-    try:
-        #the text file
-        t = open(os.path.realpath(args.txt),'r').read().replace("\n","")
-        t = t.replace("                "," ")
-        t = t.replace("            "," ")
-        t = t.replace("        "," ")
-        t = t.replace("    "," ") #needed for A E S T H E T I C S.
+    if args.txt is not None:
+        try:
+            #the text file
+            t = open(os.path.realpath(args.txt),'r').read().replace("\n","")
+            t = t.replace("                "," ")
+            t = t.replace("            "," ")
+            t = t.replace("        "," ")
+            t = t.replace("    "," ") #needed for A E S T H E T I C S.
 
-    except:
-        print "text file not found"
-        sys.exit(1)
+        except:
+            print "text file not found"
+            sys.exit(1)
+    else:
+        args.txt = "ABCDEFGHIJKLMNOPQVWYZ"
 
     try:
         #the mask file
