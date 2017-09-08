@@ -112,7 +112,7 @@ if __name__ == "__main__":
             sys.exit(1)
     else:
         args.txt = "ABCDEFGHIJKLMNOPQVWYZ"
-
+        t = args.txt
     try:
         #the mask file
         nImage = Image.open(os.path.realpath(args.mask)).convert("RGBA").resize(tuple(args.size))
